@@ -1,0 +1,30 @@
+{
+  "name": "apollo-dynamic-schema-plugin",
+  "version": "1.0.0",
+  "description": "Manage dynamic apollo graphql schema",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha tests/**/*-test.js --reporter spec",
+    "test-plugin": "mocha tests/apollo-plugin-test.js --reporter spec"
+  },
+  "type": "module",
+  "keywords": [
+    "apollo",
+    "graphql",
+    "plugin",
+    "dynamic",
+    "schema"
+  ],
+  "author": "arik lewin",
+  "license": "MIT",
+  "devDependencies": {
+    "apollo-server": "^3.6.6",
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
+  },
+  "dependencies": {
+    "graphql": "^16.3.0",
+    "lodash": "^4.17.21"
+  }
+}

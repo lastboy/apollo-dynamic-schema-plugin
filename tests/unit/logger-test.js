@@ -1,5 +1,5 @@
 import assert from "assert";
-import logger from "../lib/logger.js";
+import logger from "../../lib/logger.js";
 
 const loggerPrefixMessage = "[dynamic schema plugin]";
 

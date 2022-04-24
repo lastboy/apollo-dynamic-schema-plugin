@@ -7,7 +7,18 @@ const dynamicSchema = `
         name: String
         description: String
     }
-
   `;
 
-export default dynamicSchema;
+const dynamicResolvers = {
+  Query: {
+    hello: (parent, args, context, info) => {
+      const { name } = args;
+      return {
+        name,
+        description: " always the same description :) ",
+      };
+    },
+  },
+};
+
+export { dynamicSchema, dynamicResolvers };

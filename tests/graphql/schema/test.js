@@ -1,6 +1,10 @@
 const testSchema = `
   type Query {
-    hello(name: String): String!
+    hello(name: String): Test
+  }
+
+  type Test {
+    dummy: String
   }
 `
 

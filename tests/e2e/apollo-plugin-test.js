@@ -1,11 +1,10 @@
 // import { request, expect, assert, use as chaiUse } from "chai";
-import chai from "chai"
+import chai, { assert } from "chai";
 import chaiHttp from "chai-http";
-import app from "./test-server.js"
+import app from "./test-server.js";
 // import { ApolloServer } from "apollo-server-express";
 // import { apolloDynamicPlugin } from "../../lib/apollo-plugin.js";
 import { schema, resolvers } from "../graphql/init-index.js";
-import { dynamicSchema, dynamicResolvers } from "../graphql/dynamic-index.js";
 
 describe("apollo", () => {
 
@@ -16,15 +15,16 @@ describe("apollo", () => {
     server = await app();
   })
   
-  describe("plugin", async() => {
-    it("should returns hello with the provided name", async () => {
+  describe("plugin", () => {
+    it("should returns hello with the provided name", () => {
 
+      assert(true);
       chai.request('http://localhost:9999')
       .post('/graphql')
       .set('content-type', 'application/json')
       .send({
         'query' : `query hello($name: String) { 
-           hello(name: $name) { name }
+           hello(name: $name) { dummy }
         }`,
         'variables' : {
            'name': 'world'

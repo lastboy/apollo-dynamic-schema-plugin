@@ -11,7 +11,7 @@ const testResolvers = {
       //   appendSchema('dynamicSchema', dynamicSchema);
       // }
 
-      return `Hello ${name}!`;
+      return { dummy: `Hello ${name}!` };
     } 
   },
 };

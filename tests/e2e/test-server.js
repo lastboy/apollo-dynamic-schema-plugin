@@ -19,7 +19,7 @@ export default (async () => {
     plugins: [
       ApolloServerPluginLandingPageGraphQLPlayground,
       apolloDynamicPlugin((context) => {
-        const { appendSchema, removeSchema, schemaChanged, getSchema } = context;
+        const { appendSchema, removeSchema, schemaChanged, setApolloServer } = context;
         chai.assert.isFunction(
           appendSchema,
           "valid appendSchema function in context"
@@ -35,25 +35,7 @@ export default (async () => {
 
         if (appendSchema) {
           appendSchema("dynamicSchema", dynamicSchema, dynamicResolvers);
-
-          const dynamicSchemaCache = getSchema("dynamicSchema");
-          (async () =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              const schemaDerivedData =
-                testServer.generateSchemaDerivedData(
-                  dynamicSchemaCache.schema
-                );
-              _.set(
-                testServer,
-                "state.schemaManager.schemaDerivedData",
-                schemaDerivedData
-              );
-              resolve();
-            });
-          }, 2000))().then(() => {
-            console.log("loaded");
-          });
+          setApolloServer(testServer);
         }      
       }),
     ],

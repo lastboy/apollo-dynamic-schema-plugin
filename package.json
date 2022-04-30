@@ -2,9 +2,22 @@
   "name": "apollo-dynamic-schema-plugin",
   "version": "1.0.0",
   "description": "Manage dynamic apollo graphql schema",
+  "author": "arik lewin",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lastboy/apollo-dynamic-schema-plugin.git"
+  },
+  "bugs": {
+    "url": "http://github.com/lastboy/apollo-dynamic-schema-plugin/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/lastboy/god/LICENSE-MIT"
+    }
+  ],
   "scripts": {
-    "start": "node index.js",
     "test": "mocha tests/unit/**/*-test.js --timeout 5000 --reporter spec",
     "e2e": "mocha tests/e2e/apollo-plugin-test.js --timeout 5000 --reporter spec"
   },
@@ -16,8 +29,6 @@
     "dynamic",
     "schema"
   ],
-  "author": "arik lewin",
-  "license": "MIT",
   "devDependencies": {
     "apollo-server": "^3.6.6",
     "chai": "^4.3.6",

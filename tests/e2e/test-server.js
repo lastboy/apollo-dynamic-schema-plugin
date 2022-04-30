@@ -19,7 +19,7 @@ export default (async () => {
     plugins: [
       ApolloServerPluginLandingPageGraphQLPlayground,
       apolloDynamicPlugin((context) => {
-        const { appendSchema, removeSchema, schemaChanged, setApolloServer } = context;
+        const { appendSchema, removeSchema, setApolloServer, useSchemaKey } = context;
         chai.assert.isFunction(
           appendSchema,
           "valid appendSchema function in context"
@@ -28,13 +28,9 @@ export default (async () => {
           removeSchema,
           "valid removeSchema function in context"
         );
-        chai.assert.isFunction(
-          schemaChanged,
-          "valid schemaChanged function in context"
-        );
-
         if (appendSchema) {
-          appendSchema("dynamicSchema", dynamicSchema, dynamicResolvers);
+          const useSchemaKey = true;
+          appendSchema("dynamicSchema", dynamicSchema, dynamicResolvers, useSchemaKey);
           setApolloServer(testServer);
         }      
       }),

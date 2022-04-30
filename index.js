@@ -1,2 +1,1 @@
-import logger from './lib/logger.js'
-
+export { apolloDynamicPlugin } from './lib/apollo-plugin.js';
